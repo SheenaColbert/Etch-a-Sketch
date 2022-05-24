@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Etch-a-Sketch | Jake Dam</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="content-wrapper">
+            <div id="title-container">
+                <h1>ETCH-A-SKETCH</h1>
+                <span>Click and drag to draw</span>
+            </div>
+            <div id="body-container">
+                <div id="grid-container"></div>
+                <div id="controls-container">
+                    <b>Controls</b>
+                        <div id="black-container">
+                            <button id="black" onclick="colorChangeEventListener('black')">Black</button>
+                        </div>
+                        <div id="eraser-container">
+                            <button id="eraser" onclick="colorChangeEventListener('white')">Eraser</button>
+                        </div>
+                        <div id ="color-picker-container">
+                            <label for="color-picker">Choose Color</label>
+                            <input type="color" id="color-picker" onchange="colorChangeEventListener(this.value)">
+                        </div>
+                        <div id="random-container">
+                            <button id="random" onclick="randomColors()">Random</button>
+                        </div>
+                        <div id="pencil-container">
+                            <button id="pencil-shader" onclick="pencilShader()">Pencil Shader</button>
+                        </div>
+                        <div id="slide-container">
+                            Grid Size
+                            <input type="range" min="2" max="72" value="36" id="grid-slider" class="slider" onchange="genGrid(this.value); 
+                            clearGrid()" onmousemove="updateValue(this.value)">
+                            <div id="slider-display"></div>
+                        </div>
+                    <div id="toggle-grid-container">
+                        <button id="toggle-grid" onclick="toggleGridlines()">Toggle Gridlines</button>
+                    </div>
+                    <div id="clear-grid-container">
+                        <button id="clear-grid" onclick="clearGrid()">Clear Grid</button>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
