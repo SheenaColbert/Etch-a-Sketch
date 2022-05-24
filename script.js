@@ -3,11 +3,11 @@ const container = document.getElementById("grid-container");
 
 // Generates grid of squares based on input number 
 function genGrid(x) {
-    for(let i = 0; i < x; i++){
-        let gridRow = document.createElement("div");
+    for(var i = 0; i < x; i++){
+        var gridRow = document.createElement("div");
         gridRow.classList.add("grid-row");
-        for(let j = 0; j < x; j++) {
-            let gridSquare = document.createElement("div"); 
+        for(var j = 0; j < x; j++) {
+            var gridSquare = document.createElement("div"); 
             gridSquare.classList.add("grid-square");
             gridRow.appendChild(gridSquare);
         }
@@ -30,8 +30,8 @@ function genGrid(x) {
 
 // Add color change event on mousover 
 function colorChangeEventListener(color) {
-    let nodeList = document.querySelectorAll(".grid-square");
-    for(let i = 0, len = nodeList.length; i < len; i++) {
+    var nodeList = document.querySelectorAll(".grid-square");
+    for(var i = 0, len = nodeList.length; i < len; i++) {
         nodeList[i].setAttribute("counter", 0);
         nodeList[i].addEventListener(
             "mouseover", function(e) {
@@ -46,8 +46,8 @@ function colorChangeEventListener(color) {
 
 // Add random color change on mouseover 
 function randomColors() {
-    let nodeList = document.querySelectorAll(".grid-square");
-    for(let i = 0, len = nodeList.length; i < len; i++) {
+    var nodeList = document.querySelectorAll(".grid-square");
+    for(var i = 0, len = nodeList.length; i < len; i++) {
         let x = Math.floor(Math.random() * Math.floor(256));
         let y = Math.floor(Math.random() * Math.floor(256));
         let z = Math.floor(Math.random() * Math.floor(256));
@@ -64,12 +64,12 @@ function randomColors() {
 
 // Pencil shading that goes from light grey to black after 10 passes
 function pencilShader() {
-    let nodeList = document.querySelectorAll(".grid-square");
-    for(let i = 0, len = nodeList.length; i < len; i++) {
+    var nodeList = document.querySelectorAll(".grid-square");
+    for(var i = 0, len = nodeList.length; i < len; i++) {
         nodeList[i].addEventListener(
             "mouseover", function(e) {
                 if(e.buttons == 1) {
-                    let countValue = parseFloat(this.getAttribute("counter"));
+                    var countValue = parseFloat(this.getAttribute("counter"));
                     if(countValue == 0) {
                         this.style.backgroundColor = "rgb(0, 0, 0, 0.1)";
                         let newCount = parseFloat(countValue) + 0.1;
@@ -94,7 +94,7 @@ function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    let slideValue = document.getElementById("grid-slider").value;
+    var slideValue = document.getElementById("grid-slider").value;
     genGrid(slideValue);
     let colorValue = document.getElementById("color-picker").value;
     if (colorValue != "rgb(0, 0, 0)") {
@@ -113,8 +113,8 @@ function updateValue(value) {
 
 // Toggles gridlines 
 function toggleGridlines() {
-    let nodeList = document.querySelectorAll(".grid-square");
-    for(let i = 0, len = nodeList.length; i < len; i++) { 
+    var nodeList = document.querySelectorAll(".grid-square");
+    for(var i = 0, len = nodeList.length; i < len; i++) { 
         nodeList[i].classList.toggle("no-border");
     }
 }
